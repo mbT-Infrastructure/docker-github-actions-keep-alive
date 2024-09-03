@@ -1,0 +1,24 @@
+{
+    "name": "DevelopmentContainer",
+    "image": "madebytimo/development",
+    "remoteUser": "user",
+    "privileged": false,
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "eamodio.gitlens",
+                "esbenp.prettier-vscode",
+                "foxundermoon.shell-format",
+                "mads-hartmann.bash-ide-vscode",
+                "mhutchie.git-graph",
+                "ms-azuretools.vscode-docker",
+                "ms-python.python",
+                "redhat.vscode-yaml",
+                "SonarSource.sonarlint-vscode",
+                "streetsidesoftware.code-spell-checker",
+                "streetsidesoftware.code-spell-checker-german",
+                "timonwong.shellcheck",
+            ]
+        }
+    }
+}

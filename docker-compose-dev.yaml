@@ -1,0 +1,12 @@
+services:
+
+    github-actions-keep-alive:
+        container_name: github-actions-keep-alive
+        build: .
+        command: github-actions-keep-alive.py
+        environment:
+            # - CRON=* * * * *
+            - ORGANIZATIONS=mbT-Infrastructure,
+                mbT-Solutions
+            - REPOSITORIES=madebyTimo/BackupPacker
+            - TOKEN=$GITHUB_TOKEN
