@@ -1,11 +1,19 @@
+FROM madebytimo/python AS python
+
+RUN pip3 install PyGithub
+WORKDIR /root/builder
+RUN mkdir -p python/bin python/include python/lib \
+    && cp --no-dereference --preserve=mode,ownership,timestamps \
+    /usr/local/bin/python* /usr/local/bin/python3-latest python/bin \
+    && cp --no-dereference --preserve=mode,ownership,timestamps --recursive \
+    /usr/local/include/python* python/include \
+    && cp --no-dereference --preserve=mode,ownership,timestamps --recursive \
+    /usr/local/lib/python* python/lib \
+    && rm -rf python/lib/python*/site-packages/pip*
+
 FROM madebytimo/cron
 
-ARG PIP_BREAK_SYSTEM_PACKAGES="true"
-ARG PIP_NO_CACHE_DIR="true"
-
-RUN install-autonomous.sh install Python \
-    && rm -rf /var/lib/apt/lists/* \
-    && pip install PyGithub
+COPY --from=python /root/builder/python /usr/local
 
 COPY  files/entrypoint.sh files/github-actions-keep-alive.py /usr/local/bin/
 
