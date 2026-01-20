@@ -6,4 +6,4 @@ echo "$CRON root bash --login -c 'ORGANIZATIONS=\"${ORGANIZATIONS}\" \
     > /proc/1/fd/1 2>&1'" \
     > /media/cron/github-actions-keep-alive
 
-/entrypoint.sh "$@"
+"$@"

@@ -23,7 +23,6 @@ ENV REPOSITORIES=""
 ENV TOKEN=""
 
 ENTRYPOINT [ "entrypoint.sh" ]
-CMD [ "sleep", "infinity" ]
 
 LABEL org.opencontainers.image.licenses="MIT"
 LABEL org.opencontainers.image.source=\
