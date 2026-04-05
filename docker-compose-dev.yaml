@@ -3,10 +3,16 @@ services:
     github-actions-keep-alive:
         container_name: github-actions-keep-alive
         build: .
-        command: github-actions-keep-alive.py
+        mem_limit: 50M
+        # command: github-actions-keep-alive.py
         environment:
-            # - CRON=* * * * *
+            - CRON=* * * * *
             - ORGANIZATIONS=mbT-Infrastructure,
                 mbT-Solutions
             - REPOSITORIES=madebyTimo/BackupPacker
             - TOKEN=$GITHUB_TOKEN
+        read_only: true
+        tmpfs:
+            - /media/cron
+            - /run
+            - /tmp:exec

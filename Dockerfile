@@ -23,6 +23,7 @@ ENV REPOSITORIES=""
 ENV TOKEN=""
 
 ENTRYPOINT [ "entrypoint.sh" ]
+CMD [ "run-cron.sh" ]
 
 LABEL org.opencontainers.image.licenses="MIT"
 LABEL org.opencontainers.image.source=\
